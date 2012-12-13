@@ -7,6 +7,16 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3', '1.3.3', :group => :development
 
+# following two group should solve the problem with 
+# sqlite3 on Heroku.
+# aticle: https://devcenter.heroku.com/articles/database
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
